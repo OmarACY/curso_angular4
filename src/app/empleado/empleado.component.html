@@ -2,9 +2,13 @@
 <hr/>
 <h3>Selector de Colores:</h3>
 <input type="text" [(ngModel)]="color_seleccionado"/>
-<pre>
+
+<pre [style.border] = "color_seleccionado == 'red' ? '5px solid black': '1px solid green'"
+     [class.bordeAzul] = "color_seleccionado == 'blue'"
+>
     <strong>Color elegido:</strong> {{color_seleccionado}}
 </pre>
+
 <div [ngStyle]="{
                 'background' : color_seleccionado,
                 'width'  : '200px',
