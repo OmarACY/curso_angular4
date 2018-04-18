@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Empleado } from './empleado';
 
 @Component ({
     selector: 'empleado',
@@ -6,46 +7,28 @@ import { Component } from '@angular/core';
 })
 
 export class EmpleadoComponent {
-    tituloComponente = 'Empleado';
-    nombre:string;
-    edad:number;
-    mayorDeEdad:boolean = true;
-    trabajos:Array<any>;
-    comodin:any;
+    public titulo = 'Componente Empleados';
+    public empleado:Empleado;
+    public trabajadores:Array<Empleado>;
+    public trabajador_externo:boolean;
 
     constructor(){
-        console.log(this.trabajos);
-        this.nombre = 'Omar Alejandro Cervantes Yepez';
-        this.edad = 24;
-        this.mayorDeEdad = true;
-        this.trabajos = [5, ' Programador analista', ' Levantamiento de tarros XD'];
-        this.comodin = 'SI';
+        this.empleado = new Empleado('Omar Alejandro Cervantes', new Date('1993/08/12'),'Programador analista', true);  
+        this.trabajadores = [
+            new Empleado('Omar Alejandro Cervantes', new Date('1993/08/12'),'Programador analista', true),
+            new Empleado('Jorge Armando Tovar', new Date('1992/02/18'),'Programador', false),
+            new Empleado('Fernando Donat', new Date('1992/09/24'),'Programador analista', true)
+        ];
+
+        this.trabajador_externo = false;
     }
 
     ngOnInit(){
-        this.cambiarNombre('Juan Perez');
-        this.cambiarEdad(22);
-        //alert('Bienvenido!!' + this.nombre + ' Con edad ' + this.edad);
-    
-        // Variables y alcance
-        var uno = 8;
-        var dos = 15;
-
-        if(uno === 8){
-            let uno = 3;
-            var dos = 88;
-
-            console.log("Dentro de if: " + uno + " " + dos);
-        }
-
-        console.log("Fuera de de if: " + uno + " " + dos);
+        console.log(this.empleado);
+        console.log(this.trabajadores);
     }
 
-    cambiarNombre(nombre){
-        this.nombre = nombre;
-    }
-
-    cambiarEdad(edad){
-        this.edad = edad;
+    cambiarEmpleado(valor){
+        this.trabajador_externo = valor;
     }
 }
