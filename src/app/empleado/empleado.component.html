@@ -1,7 +1,27 @@
-<h3>{{titulo}}</h3>
-<strong>Empleado:</strong>
-<br/>
-<br/>
+<h2>{{titulo}}</h2>
+<hr/>
+<h3>Colores switch</h3>
+<ul [ngSwitch]="color">
+    <li *ngSwitchCase="'red'" [ngStyle]="{'background':color, 'color':'white', 'padding':'20px'}">Es de color Rojo</li>
+    <li *ngSwitchCase="'blue'" [ngStyle]="{'background':color, 'color':'white', 'padding':'20px'}">Es de color Azul</li>
+    <li *ngSwitchCase="'green'" [ngStyle]="{'background':color, 'color':'white', 'padding':'20px'}">Es de color Verde</li>
+</ul>
+<hr/>
+<h3>Listado de empleados</h3>
+<ul>
+    <li *ngFor="let empleado of trabajadores; let i = index">
+        Empleado {{i+1}}:
+        <ul>
+            <li>{{empleado.nombre}}</li>
+            <li>{{empleado.fecNac}}</li>
+            <li>{{empleado.cargo}}</li>
+            <li *ngIf = "empleado.contratado == true">Contratado</li>
+            <li *ngIf = "empleado.contratado == false">No contratado</li>
+        </ul>
+    </li>
+</ul>
+<hr/>
+<h3>Empleado:</h3>
 <button (click)="cambiarEmpleado(!trabajador_externo)">Cambiar empleado</button>
 <div *ngIf = "trabajador_externo == true">
     <ul>
@@ -21,17 +41,3 @@
         <li *ngIf = "empleado.contratado == false">No contratado</li>
     </ul>
 </div>
-
-<h3>Listado de empleados</h3>
-<ul>
-    <li *ngFor="let empleado of trabajadores; let i = index">
-        Empleado {{i+1}}:
-        <ul>
-            <li>{{empleado.nombre}}</li>
-            <li>{{empleado.fecNac}}</li>
-            <li>{{empleado.cargo}}</li>
-            <li *ngIf = "empleado.contratado == true">Contratado</li>
-            <li *ngIf = "empleado.contratado == false">No contratado</li>
-        </ul>
-    </li>
-</ul>
