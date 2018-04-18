@@ -12,6 +12,7 @@ export class EmpleadoComponent {
     public trabajadores:Array<Empleado>;
     public trabajador_externo:boolean;
     public color:string;
+    public color_seleccionado:string;
 
     constructor(){
         this.empleado = new Empleado('Omar Alejandro Cervantes', new Date('1993/08/12'),'Programador analista', true);  
@@ -23,6 +24,7 @@ export class EmpleadoComponent {
 
         this.trabajador_externo = false;
         this.color = 'red';
+        this.color_seleccionado = '#CCC';
     }
 
     ngOnInit(){

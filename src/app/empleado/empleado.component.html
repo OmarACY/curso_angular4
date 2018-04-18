@@ -1,5 +1,20 @@
 <h2>{{titulo}}</h2>
 <hr/>
+<h3>Selector de Colores:</h3>
+<input type="text" [(ngModel)]="color_seleccionado"/>
+<pre>
+    <strong>Color elegido:</strong> {{color_seleccionado}}
+</pre>
+<div [ngStyle]="{
+                'background' : color_seleccionado,
+                'width'  : '200px',
+                'height' : '200px',
+                'float' : 'right',
+                'margin-right' : '69%'
+                }"></div>
+<div style="clear:both"></div>
+
+<hr/>
 <h3>Colores switch</h3>
 <ul [ngSwitch]="color">
     <li *ngSwitchCase="'red'" [ngStyle]="{'background':color, 'color':'white', 'padding':'20px'}">Es de color Rojo</li>
@@ -7,7 +22,7 @@
     <li *ngSwitchCase="'green'" [ngStyle]="{'background':color, 'color':'white', 'padding':'20px'}">Es de color Verde</li>
 </ul>
 <hr/>
-<h3>Listado de empleados</h3>
+<h3>Listado de empleados:</h3>
 <ul>
     <li *ngFor="let empleado of trabajadores; let i = index">
         Empleado {{i+1}}:
