@@ -4,6 +4,24 @@
     Welcome to {{ title }}!
   </h1>
 </div>
+<hr>
+<nav>
+  <a [routerLink]="['/home']">
+    Home
+  </a>
+  -
+  <a [routerLink]="['/fruta']">
+    Fruta
+  </a>
+  -
+  <a [routerLink]="['/empleado']">
+    Empleado
+  </a>
+  -
+  <a [routerLink]="['/contacto']">
+    Contacto
+  </a>
+</nav>
 <!--<fruta></fruta>-->
 <!--<empleado></empleado>-->
 <router-outlet></router-outlet>

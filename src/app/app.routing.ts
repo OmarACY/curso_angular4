@@ -4,12 +4,16 @@ import { Routes,RouterModule,Router } from '@angular/router';
 // Importar componentes
 import { EmpleadoComponent } from './empleado/empleado.component';
 import { FrutaComponent } from './fruta/fruta.component';
+import { HomeComponent } from './home/home.component';
+import { ContactoComponent } from './contacto/contacto.component';
 
 const appRoutes : Routes = [
-    {path: '', component: EmpleadoComponent},
+    {path: '', component: HomeComponent},
     {path: 'empleado', component: EmpleadoComponent},
     {path: 'fruta', component : FrutaComponent},
-    {path: '**', component: EmpleadoComponent} //Cuando la ruta Falla
+    {path: 'home', component: HomeComponent},
+    {path: 'contacto', component : ContactoComponent},
+    {path: '**', component: HomeComponent} //Cuando la ruta Falla
 ];
 
 export const appRoutingProviders: any [] = [];
