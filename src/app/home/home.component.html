@@ -1,8 +1,12 @@
 <h2>{{titulo}}</h2>
 
 {{fecha | date:'dd/MM/yyyy'}}
+-
 {{fecha | date:'fullDate' }}
+-
 {{nombre | uppercase | lowercase}}
+-
+{{5 | conversor: 7}}
 <br>
 <br>
 <input type="text" [(ngModel)]="prenda_a_guardar"/>
