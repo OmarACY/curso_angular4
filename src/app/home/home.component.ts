@@ -13,7 +13,8 @@ export class HomeComponent{
     public prenda_a_guardar:string;
     
     public fecha;
-
+    public nombre = "Omar Alejandro Cervantes Yepez";
+    
     constructor(
         private _ropaService:RopaService
     ){
