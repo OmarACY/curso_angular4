@@ -3,3 +3,8 @@
 <div *ngIf = "parametro">
     Parametro de la url: {{parametro}}
 </div>
+
+<div *ngIf = "!parametro">
+    <button (click) = "redirigir()">Ir a la pagina con parametro</button>
+    <button (click) = "redirigirDos()">Ir a la pagina principal</button>
+</div>
