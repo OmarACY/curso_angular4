@@ -1,0 +1,14 @@
+<h2>{{titulo}}</h2>
+
+<form #formCoche="ngForm" (ngSubmit)="onSubmit()">
+    <label>Nombre</label>
+    <input type="text" name="nombre" #nombre="ngModel" [(ngModel)]="coche.nombre" required>
+    
+    <label>Caballaje</label>
+    <input type="text" name="caballaje" #caballaje="ngModel" [(ngModel)]="coche.caballaje" required>
+
+    <label>Color</label>
+    <input type="text" name="color" #color="ngModel" [(ngModel)]="coche.color" required>
+    <br><br>
+    <input type="submit" value="Guardar" >
+</form>
