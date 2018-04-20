@@ -19,7 +19,7 @@
 </style>
 
 <div>
-    <form #formCoche="ngForm" (ngSubmit)="onSubmit()" style="width: 230px;">
+    <form #formCoche="ngForm" (ngSubmit)="onSubmit();formCoche.reset();" style="width: 230px;">
         <label>Nombre: </label>
         <input type="text" name="nombre" #nombre="ngModel" [(ngModel)]="coche.nombre" required>
         <span *ngIf="nombre.touched && !nombre.valid">
