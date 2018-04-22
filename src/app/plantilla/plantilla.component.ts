@@ -14,4 +14,8 @@ export class PlantillaComponent {
         this.administrador = true;
 
     }
+
+    Cambiar() {
+        this.administrador = !this.administrador;
+    }
 }
