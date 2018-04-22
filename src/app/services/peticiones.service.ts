@@ -4,9 +4,19 @@ import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs/Observable';
 
 @Injectable()
-export class PeticionesService{
+export class PeticionesService {
+    public url: string;
 
-    getPrueba(){
+    constructor(private _http: Http) {
+        this.url = 'https://jsonplaceholder.typicode.com/posts';
+    }
+
+    getPrueba() {
         return 'Hola mundo desde servicio.';
+    }
+
+    getArticulos() {
+        return this._http.get(this.url)
+                         .map(res => res.json());
     }
 }

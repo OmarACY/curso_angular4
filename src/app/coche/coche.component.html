@@ -1,19 +1,20 @@
 <h2>{{titulo}}</h2>
 <style>
-    div{
+    div {
         float: left;
     }
 
-    form{
+    form {
         width: 200px;
     }
 
-    input[type="text"], span{
+    input[type="text"],
+    span {
         display: block;
         width: 100%;
     }
 
-    .listado{
+    .listado {
         margin-left: 30px;
     }
 </style>
@@ -43,11 +44,21 @@
     </form>
 </div>
 
-<div class="listado" >
+<div class="listado">
     <h4>Listado de coches</h4>
     <ul>
         <li *ngFor="let coche of coches">
             {{coche.nombre}} - {{coche.caballaje}} - {{coche.color}}
         </li>
     </ul>
+</div>
+
+<div class="listado">
+    <h4>Listado de articulos</h4>
+    <ul *ngIf="articulos">
+        <li *ngFor="let articulo of articulos">
+            {{articulo.id}} - {{articulo.title}}
+        </li>
+    </ul>
+    <span *ngIf="!articulos">Cargando listado...</span>
 </div>
