@@ -2,9 +2,14 @@
 
 <button (click)="Cambiar()">Cambiar</button>
 
-<div *ngIf="administrador; else noAdmin">
-    <strong style="background: yellow">Eres el administrador de la WebApp</strong>
+<div *ngIf="administrador; then admin else noAdmin">
 </div>
+
+<ng-template #admin>
+    <div>
+        <strong style="background: yellow">Eres el administrador de la WebApp</strong>
+    </div>
+</ng-template>
 
 <ng-template #noAdmin>
     <div>
