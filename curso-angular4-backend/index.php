@@ -13,7 +13,34 @@
     $app->get("/probando", function() use($app){
         echo "Texto cualquiera";
     });
+    
+    // Listar todos los productos
+    $app->get("/producto", function() use($app, $db){
+        $sql = "SELECT * FROM productos ORDER BY id DESC;";
+        $query = $db->query($sql);
 
+        $productos = array();
+        while ($producto = $query->fetch_assoc()){
+            $productos[] = $producto;
+        }
+
+        $result = array(
+            'status' => 'success',
+            'code'   => 200,
+            'data'=>  $productos
+        );
+
+        echo json_encode($result);
+    });
+    // Devolver un producto
+
+    // Eliminar un producto
+
+    // Actualizar un producto
+
+    // Subir una imagen a un producto
+    
+    // Guardar productos
     $app->post('/producto', function() use($app, $db){
         $json = $app->request->post('json');
         $data = json_decode($json, true);
