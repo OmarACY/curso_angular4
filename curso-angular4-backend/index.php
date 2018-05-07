@@ -33,7 +33,28 @@
         echo json_encode($result);
     });
     // Devolver un producto
+    $app->get('/producto/:id', function($id) use($db, $app){
+        $sql = 'SELECT * FROM productos WHERE id = '.$id;
+        $query = $db->query($sql);
 
+        $result = array(
+            'status' => 'error',
+            'code'   => 404,
+            'message'=>  'Producto no disponible'
+        );
+
+        if($query->num_rows == 1){
+            $producto = $query->fetch_assoc();
+            
+            $result = array(
+                'status' => 'error',
+                'code'   => 200,
+                'data'=>  $producto
+            );
+        }
+
+        echo json_encode($result);
+    });
     // Eliminar un producto
 
     // Actualizar un producto
