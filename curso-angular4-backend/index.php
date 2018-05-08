@@ -37,26 +37,45 @@
         $sql = 'SELECT * FROM productos WHERE id = '.$id;
         $query = $db->query($sql);
 
-        $result = array(
-            'status' => 'error',
-            'code'   => 404,
-            'message'=>  'Producto no disponible'
-        );
-
         if($query->num_rows == 1){
             $producto = $query->fetch_assoc();
             
             $result = array(
-                'status' => 'error',
+                'status' => 'success',
                 'code'   => 200,
                 'data'=>  $producto
+            );
+        }else{
+            $result = array(
+                'status' => 'error',
+                'code'   => 404,
+                'message'=>  'Producto no disponible'
             );
         }
 
         echo json_encode($result);
     });
     // Eliminar un producto
+    $app->get('/delete-producto/:id', function($id) use($db, $app){
+        $sql = 'DELETE FROM productos WHERE id = '. $id;
+        $query = $db->query($sql);
 
+        if($query){
+            $result = array(
+                'status' => 'success',
+                'code'   => 200,
+                'message'=>  'El producto se ha eliminado correctamente!!'
+            );
+        }else{
+            $result = array(
+                'status' => 'error',
+                'code'   => 404,
+                'message'=>  'El producto no se ha eliminado correctamente!!'
+            );
+        }
+
+        echo json_encode($result);
+    });
     // Actualizar un producto
 
     // Subir una imagen a un producto
