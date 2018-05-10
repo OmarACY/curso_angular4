@@ -5,6 +5,16 @@
 
     $db = new mysqli('localhost', 'root', '', 'curso_angular4');
 
+    //Configuración de cabeceras
+    header('Access-Control-Allow-Origin: *');
+    header("Access-Control-Allow-Headers: X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Request-Method");
+    header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
+    header("Allow: GET, POST, OPTIONS, PUT, DELETE");
+    $method = $_SERVER['REQUEST_METHOD'];
+    if($method == "OPTIONS") {
+	    die();
+    }
+
     $app->get("/pruebas", function() use($app, $db){
         echo "Hola mundo desde Slim PHP";
         var_dump($db);
