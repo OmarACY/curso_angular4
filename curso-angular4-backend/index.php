@@ -77,7 +77,35 @@
         echo json_encode($result);
     });
     // Actualizar un producto
+    $app->post('/update-producto/:id', function($id) use($db, $app){
+        $json = $app->request->post('data');
+        $data = json_decode($json, true);
 
+        $sql = "UPDATE productos SET ".
+                "nombre = '{$data["nombre"]}', ".
+                "descripcion = '{$data["descripcion"]}', ".
+                "precio = '{$data["precio"]}', ".
+                "rutaImagen = '{$data["rutaImagen"]}' ".
+                "WHERE id = {$id}";
+
+        $query = $db->query($sql);
+
+        if($query){
+            $result = array(
+                'status' => 'success',
+                'code'   => 200,
+                'message'=>  'El producto se ha actualizado correctamente!!'
+            );
+        }else{
+            $result = array(
+                'status' => 'error',
+                'code'   => 404,
+                'message'=>  'El producto no existe o no se ha actualizado correctamente!!'
+            );
+        }
+
+        echo json_encode($result);
+    });
     // Subir una imagen a un producto
     
     // Guardar productos
